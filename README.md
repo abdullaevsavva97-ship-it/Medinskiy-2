@@ -1,1 +1,345 @@
-# Medinskiy-2
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Тест — Арабский язык</title><style>:root{--bg:#0f0e17;--card:#1a1828;--card2:#221f35;--accent:#c5a028;--accent2:#9b59b6;--text:#e8e4f0;--muted:#7a7590;--correct:#27ae60;--wrong:#e74c3c;--border:#2e2b45}*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:sans-serif;min-height:100vh}.container{max-width:780px;margin:0 auto;padding:30px 16px 80px}header{text-align:center;margin-bottom:36px}.brand{font-size:2rem;font-weight:900;letter-spacing:4px;color:var(--accent);margin-bottom:10px;text-shadow:0 0 30px rgba(197,160,40,0.4)}.social{display:flex;justify-content:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}.social a{display:flex;align-items:center;gap:6px;text-decoration:none;font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:20px}.insta{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}.yt{background:#ff0000;color:#fff}h1{font-size:1.25rem;margin-bottom:5px}header p{color:var(--muted);font-size:.85rem}.divider{height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:22px 0}.pb{background:var(--border);border-radius:99px;height:6px;margin-bottom:5px;overflow:hidden}.pf{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:99px;transition:width .5s}.pl{text-align:right;font-size:.73rem;color:var(--muted);margin-bottom:22px}.sh{display:flex;align-items:center;gap:11px;margin-bottom:14px}.sn{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;flex-shrink:0}.st{font-size:.97rem;font-weight:700}.sd{font-size:.74rem;color:var(--muted);margin-top:2px}.sb{margin-bottom:32px}.qb{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:17px;margin-bottom:12px;transition:border-color .3s}.qb.correct{border-color:var(--correct);background:rgba(39,174,96,.05)}.qb.wrong{border-color:var(--wrong);background:rgba(231,76,60,.05)}.qt{font-size:.9rem;font-weight:600;margin-bottom:11px;line-height:1.5}.qa{font-size:1.25rem;direction:rtl;text-align:center;color:var(--accent);padding:10px;background:var(--card2);border-radius:10px;margin-bottom:11px;line-height:2}.og{display:grid;gap:8px}.tc{grid-template-columns:1fr 1fr}.ob{background:var(--card2);border:1px solid var(--border);border-radius:9px;padding:10px 12px;color:var(--text);font-family:sans-serif;font-size:.86rem;cursor:pointer;transition:all .2s;text-align:center;width:100%;line-height:1.4}.ob:hover{border-color:var(--accent);background:rgba(197,160,40,.08)}.ob.sc{border-color:var(--correct);background:rgba(39,174,96,.15);color:#5ddb8d}.ob.sw{border-color:var(--wrong);background:rgba(231,76,60,.15);color:#f08080}.ob.sk{border-color:var(--correct);background:rgba(39,174,96,.08)}.ob:disabled{cursor:default}.fb{font-size:.79rem;margin-top:8px;padding:8px 11px;border-radius:7px;display:none;line-height:1.5}.fb.show{display:block}.fb.ok{background:rgba(39,174,96,.1);color:#5ddb8d}.fb.bad{background:rgba(231,76,60,.1);color:#f08080}.mc{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}.mcl{display:flex;flex-direction:column;gap:6px}.mi{padding:10px;border-radius:9px;border:1px solid var(--border);text-align:center;font-size:.86rem;line-height:1.4}.ml{background:var(--card2);cursor:pointer;transition:all .2s}.ml:hover:not(.mok):not(.mbad){border-color:var(--accent)}.ml.sel{border-color:var(--accent);background:rgba(197,160,40,.12)}.ml.mok{border-color:var(--correct);background:rgba(39,174,96,.1);color:#5ddb8d;cursor:default}.ml.mbad{border-color:var(--wrong);background:rgba(231,76,60,.1)}.mr{background:rgba(155,89,182,.1);border-color:rgba(155,89,182,.3);cursor:pointer;transition:all .2s;direction:rtl;font-size:1.1rem;color:var(--accent)}.mr:hover:not(.mok):not(.mbad){border-color:var(--accent2)}.mr.mok{border-color:var(--correct);background:rgba(39,174,96,.1);color:#5ddb8d;cursor:default}.mr.mbad{border-color:var(--wrong);background:rgba(231,76,60,.1)}.audio-btn{background:var(--card2);border:1px solid var(--accent2);border-radius:10px;padding:10px 16px;color:var(--accent);font-family:sans-serif;font-size:.9rem;cursor:pointer;display:flex;align-items:center;gap:9px;margin:0 auto 12px;transition:all .2s}.audio-btn:hover{background:rgba(155,89,182,.15)}.ia{width:100%;background:var(--card2);border:1px solid var(--border);border-radius:9px;padding:10px 12px;color:var(--text);font-family:sans-serif;font-size:.9rem;outline:none;margin-bottom:7px}.ia.ci{border-color:var(--correct)}.ia.wi{border-color:var(--wrong)}.cb{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;border-radius:9px;padding:9px 16px;color:#fff;font-family:sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;margin-top:7px}.cb:disabled{opacity:.4}.rule-box{background:linear-gradient(135deg,rgba(155,89,182,.15),rgba(197,160,40,.1));border:1px solid var(--accent2);border-radius:12px;padding:14px 17px;margin-bottom:17px}.rule-title{font-size:.82rem;color:var(--accent2);font-weight:700;margin-bottom:8px}.rule-note{font-size:.79rem;color:var(--muted);line-height:1.8}.cah{font-size:.74rem;color:var(--muted);margin-top:4px}.sa{text-align:center;margin-top:38px}.subb{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;border-radius:13px;padding:14px 38px;color:#fff;font-size:1rem;font-weight:700;cursor:pointer}#rs{display:none;text-align:center;padding:46px 18px}.rsc{font-size:3.8rem;font-weight:700;color:var(--accent);margin-bottom:9px}.rsg{font-size:1.6rem;font-weight:700;margin-bottom:14px}.rsm{color:var(--muted);font-size:.9rem;margin-bottom:28px}.rb{background:transparent;border:1px solid var(--accent);border-radius:11px;padding:11px 30px;color:var(--accent);font-size:.9rem;cursor:pointer}.errors-block{margin-top:28px;text-align:left}.errors-title{font-size:.97rem;font-weight:700;color:var(--wrong);margin-bottom:12px;text-align:center}.err-item{background:var(--card);border:1px solid var(--wrong);border-radius:12px;padding:13px;margin-bottom:9px}.err-q{font-size:.8rem;color:var(--muted);margin-bottom:5px}.err-arabic{font-size:1.1rem;direction:rtl;color:var(--accent);margin-bottom:5px;line-height:1.8}.err-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:7px}.err-yours{background:rgba(231,76,60,.1);border:1px solid var(--wrong);border-radius:7px;padding:4px 9px;font-size:.77rem;color:#f08080}.err-correct{background:rgba(39,174,96,.1);border:1px solid var(--correct);border-radius:7px;padding:4px 9px;font-size:.77rem;color:#5ddb8d}.err-explain{font-size:.76rem;color:var(--muted);background:rgba(155,89,182,.08);border-left:3px solid var(--accent2);padding:6px 10px;border-radius:0 7px 7px 0;line-height:1.5}@media(max-width:500px){.tc{grid-template-columns:1fr}.mc{grid-template-columns:1fr}}</style></head><body>
+<div class="container">
+<header>
+<div class="brand">SAVVA.ARABIYA</div>
+<div class="social">
+<a href="https://www.instagram.com/savva.arabiya?igsh=ejU2cDNrOXBuaTVw&utm_source=qr" target="_blank" class="insta"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.085 1.855.601 3.697 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.085 3.697-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.085-1.855-.601-3.697-1.942-5.038C20.645.673 18.803.157 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg> Instagram</a>
+<a href="https://youtube.com/@savvaarabiya?si=l0A5akdb7I6II2iI" target="_blank" class="yt"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> YouTube</a>
+</div>
+<h1>Тест по арабскому языку</h1>
+<p>أَيْنَ؟ — Где? Предлоги فِي و عَلَى. Солнечные и лунные буквы</p>
+</header>
+<div class="divider"></div>
+<div class="pb"><div class="pf" id="pf" style="width:0%"></div></div>
+<div class="pl" id="pl">0 / 26 отвечено</div>
+<div id="qc">
+
+<div class="sb">
+<div class="sh"><div class="sn">📖</div><div><div class="st">Правила урока</div><div class="sd">Предлоги, огласовки, солнечные и лунные буквы</div></div></div>
+<div class="rule-box">
+<div class="rule-title">فِي (в) и عَلَى (на) — слово после предлога стоит в كسرة (родит. падеж):</div>
+<div class="rule-note">
+• <span style="color:var(--accent)">فِي الْبَيْتِ</span> — в доме &nbsp;•&nbsp; <span style="color:var(--accent)">فِي الْمَدْرَسَةِ</span> — в школе<br>
+• <span style="color:var(--accent)">عَلَى الْمَكْتَبِ</span> — на столе &nbsp;•&nbsp; <span style="color:var(--accent)">عَلَى السَّرِيرِ</span> — на кровати<br><br>
+<strong style="color:var(--accent2)">☀️ Солнечные буквы</strong> — артикль ل ассимилируется с первой буквой слова:<br>
+الشَّمْسُ ← شمس &nbsp;•&nbsp; الصَّفِّ ← صف &nbsp;•&nbsp; السَّرِيرُ ← سرير<br><br>
+<strong style="color:var(--accent2)">🌙 Лунные буквы</strong> — артикль الْ читается полностью:<br>
+الْبَيْتُ ← بيت &nbsp;•&nbsp; الْمَكْتَبُ ← مكتب &nbsp;•&nbsp; الْقَلَمُ ← قلم<br><br>
+<strong style="color:var(--accent2)">أَيْنَ؟</strong> — Где? → ответ: هُوَ/هِيَ + فِي/عَلَى + место
+</div>
+</div>
+</div>
+
+<div class="sb">
+<div class="sh"><div class="sn">1</div><div><div class="st">Переведи фразу с предлогом</div><div class="sd">فِي — в, عَلَى — на</div></div></div>
+
+<div class="qb" id="qb-1"><div class="qt">Что означает фраза?</div><div class="qa">فِي الْبَيْتِ</div><div class="og tc"><button class="ob" id="q1b1">На доме</button><button class="ob" id="q1b2">В доме</button><button class="ob" id="q1b3">Из дома</button><button class="ob" id="q1b4">К дому</button></div><div class="fb" id="fb-1"></div></div>
+
+<div class="qb" id="qb-2"><div class="qt">Что означает фраза?</div><div class="qa">عَلَى الْمَكْتَبِ</div><div class="og tc"><button class="ob" id="q2b1">В столе</button><button class="ob" id="q2b2">Под столом</button><button class="ob" id="q2b3">На столе</button><button class="ob" id="q2b4">За столом</button></div><div class="fb" id="fb-2"></div></div>
+
+<div class="qb" id="qb-3"><div class="qt">Что означает фраза?</div><div class="qa">فِي الْمَدْرَسَةِ</div><div class="og tc"><button class="ob" id="q3b1">В мечети</button><button class="ob" id="q3b2">На уроке</button><button class="ob" id="q3b3">В школе</button><button class="ob" id="q3b4">В комнате</button></div><div class="fb" id="fb-3"></div></div>
+
+<div class="qb" id="qb-4"><div class="qt">Что означает фраза?</div><div class="qa">عَلَى السَّرِيرِ</div><div class="og tc"><button class="ob" id="q4b1">В кровати</button><button class="ob" id="q4b2">На кровати</button><button class="ob" id="q4b3">Под кроватью</button><button class="ob" id="q4b4">На стуле</button></div><div class="fb" id="fb-4"></div></div>
+
+<div class="qb" id="qb-5"><div class="qt">Что означает фраза?</div><div class="qa">فِي الْمَطْبَخِ</div><div class="og tc"><button class="ob" id="q5b1">В ванной</button><button class="ob" id="q5b2">В комнате</button><button class="ob" id="q5b3">В мечети</button><button class="ob" id="q5b4">На кухне</button></div><div class="fb" id="fb-5"></div></div>
+
+<div class="qb" id="qb-6"><div class="qt">Что означает фраза?</div><div class="qa">فِي الْحَمَّامِ</div><div class="og tc"><button class="ob" id="q6b1">На кухне</button><button class="ob" id="q6b2">В классе</button><button class="ob" id="q6b3">В ванной / туалете</button><button class="ob" id="q6b4">В комнате</button></div><div class="fb" id="fb-6"></div></div>
+</div>
+
+<div class="sb">
+<div class="sh"><div class="sn">2</div><div><div class="st">أَيْنَ؟ — Где? Вопрос и ответ</div><div class="sd">Переводи диалоги правильно</div></div></div>
+
+<div class="qb" id="qb-7"><div class="qt">Переведи диалог:</div><div class="qa">أَيْنَ مُحَمَّدٌ؟ هُوَ فِي الْغُرْفَةِ</div><div class="og tc"><button class="ob" id="q7b1">Где Фатима? Она в комнате.</button><button class="ob" id="q7b2">Где Мухаммад? Он в комнате.</button><button class="ob" id="q7b3">Где Мухаммад? Он в ванной.</button><button class="ob" id="q7b4">Где Мухаммад? Он на кухне.</button></div><div class="fb" id="fb-7"></div></div>
+
+<div class="qb" id="qb-8"><div class="qt">Переведи диалог:</div><div class="qa">أَيْنَ آمِنَةُ؟ هِيَ فِي الْمَطْبَخِ</div><div class="og tc"><button class="ob" id="q8b1">Где Амина? Она в комнате.</button><button class="ob" id="q8b2">Где Зейнаб? Она на кухне.</button><button class="ob" id="q8b3">Где Амина? Она на кухне.</button><button class="ob" id="q8b4">Где Амина? Она в ванной.</button></div><div class="fb" id="fb-8"></div></div>
+
+<div class="qb" id="qb-9"><div class="qt">Как правильно спросить «Где Ясир?»</div><div class="og tc"><button class="ob" id="q9b1" style="direction:rtl;font-size:1.1rem">مَنْ يَاسِرٌ؟</button><button class="ob" id="q9b2" style="direction:rtl;font-size:1.1rem">مَا يَاسِرٌ؟</button><button class="ob" id="q9b3" style="direction:rtl;font-size:1.1rem">أَيْنَ يَاسِرٌ؟</button><button class="ob" id="q9b4" style="direction:rtl;font-size:1.1rem">هُوَ يَاسِرٌ؟</button></div><div class="fb" id="fb-9"></div></div>
+
+<div class="qb" id="qb-10"><div class="qt">Переведи предложение:</div><div class="qa">الطَّالِبُ فِي الْجَامِعَةِ</div><div class="og tc"><button class="ob" id="q10b1">Студент в школе.</button><button class="ob" id="q10b2">Студент в университете.</button><button class="ob" id="q10b3">Учитель в университете.</button><button class="ob" id="q10b4">Студент на столе.</button></div><div class="fb" id="fb-10"></div></div>
+
+<div class="qb" id="qb-11"><div class="qt">Переведи предложение:</div><div class="qa">الْقَلَمُ عَلَى الْمَكْتَبِ</div><div class="og tc"><button class="ob" id="q11b1">Книга на столе.</button><button class="ob" id="q11b2">Ручка под столом.</button><button class="ob" id="q11b3">Ручка на столе.</button><button class="ob" id="q11b4">Ручка в столе.</button></div><div class="fb" id="fb-11"></div></div>
+
+<div class="qb" id="qb-12"><div class="qt">Переведи предложение:</div><div class="qa">الشَّمْسُ وَالْقَمَرُ فِي السَّمَاءِ</div><div class="og"><button class="ob" id="q12b1">Солнце и луна в море.</button><button class="ob" id="q12b2">Звезда и луна на небе.</button><button class="ob" id="q12b3">Солнце и луна на небе.</button><button class="ob" id="q12b4">Солнце и луна в доме.</button></div><div class="fb" id="fb-12"></div></div>
+</div>
+
+<div class="sb">
+<div class="sh"><div class="sn">3</div><div><div class="st">☀️🌙 Солнечные и лунные буквы</div><div class="sd">Как меняется артикль الـ?</div></div></div>
+
+<div class="qb" id="qb-13"><div class="qt">Слово «школа» = مَدْرَسَةٌ. Буква م — лунная. Выбери правильную форму «в школе»:</div><div class="og tc"><button class="ob" id="q13b1" style="direction:rtl;font-size:1.2rem">فِي الدَّرَسَةِ</button><button class="ob" id="q13b2" style="direction:rtl;font-size:1.2rem">فِي الْمَدْرَسَةِ</button><button class="ob" id="q13b3" style="direction:rtl;font-size:1.2rem">فِي مَدْرَسَةِ</button><button class="ob" id="q13b4" style="direction:rtl;font-size:1.2rem">فِي الْمَدْرَسَةُ</button></div><div class="fb" id="fb-13"></div></div>
+
+<div class="qb" id="qb-14"><div class="qt">Слово «кровать» = سَرِيرٌ. Буква س — солнечная. Выбери правильную форму «на кровати»:</div><div class="og tc"><button class="ob" id="q14b1" style="direction:rtl;font-size:1.2rem">عَلَى الْسَرِيرِ</button><button class="ob" id="q14b2" style="direction:rtl;font-size:1.2rem">عَلَى السَّرِيرِ</button><button class="ob" id="q14b3" style="direction:rtl;font-size:1.2rem">عَلَى سَرِيرِ</button><button class="ob" id="q14b4" style="direction:rtl;font-size:1.2rem">عَلَى السَرِيرِ</button></div><div class="fb" id="fb-14"></div></div>
+
+<div class="qb" id="qb-15"><div class="qt">Верно или неверно: «الشَّمْسُ» — правильная форма слова «солнце» с артиклем</div><div class="og tc"><button class="ob" id="q15b1">✓ Верно — ش солнечная, буква удваивается</button><button class="ob" id="q15b2">✗ Неверно</button></div><div class="fb" id="fb-15"></div></div>
+
+<div class="qb" id="qb-16"><div class="qt">Какой вариант написан НЕПРАВИЛЬНО?</div><div class="og tc"><button class="ob" id="q16b1" style="direction:rtl;font-size:1.1rem">فِي الْبَيْتِ</button><button class="ob" id="q16b2" style="direction:rtl;font-size:1.1rem">فِي الْكِتَابِ</button><button class="ob" id="q16b3" style="direction:rtl;font-size:1.1rem">فِي الْشَّمْسِ</button><button class="ob" id="q16b4" style="direction:rtl;font-size:1.1rem">فِي الْغُرْفَةِ</button></div><div class="fb" id="fb-16"></div></div>
+</div>
+
+<div class="sb">
+<div class="sh"><div class="sn">4</div><div><div class="st">Сопоставь место и предложение</div><div class="sd">Нажми место слева, затем правильный вариант справа</div></div></div>
+
+<div class="qb" id="qb-m1"><div class="qt">Сопоставь вопрос «أَيْنَ؟» с правильным ответом:</div>
+<div class="mc">
+<div class="mcl" id="m1l">
+<div class="mi ml" onclick="mc('m1','l',this,'r1')">Мухаммад — в комнате</div>
+<div class="mi ml" onclick="mc('m1','l',this,'r2')">Ясир — в ванной</div>
+<div class="mi ml" onclick="mc('m1','l',this,'r3')">Книга — на столе</div>
+<div class="mi ml" onclick="mc('m1','l',this,'r4')">Амина — на кухне</div>
+</div>
+<div class="mcl" id="m1r">
+<div class="mi mr" onclick="mc('m1','r',this,'r3')">هُوَ عَلَى الْمَكْتَبِ</div>
+<div class="mi mr" onclick="mc('m1','r',this,'r1')">هُوَ فِي الْغُرْفَةِ</div>
+<div class="mi mr" onclick="mc('m1','r',this,'r4')">هِيَ فِي الْمَطْبَخِ</div>
+<div class="mi mr" onclick="mc('m1','r',this,'r2')">هُوَ فِي الْحَمَّامِ</div>
+</div>
+</div>
+<div class="fb" id="fb-m1"></div></div>
+
+<div class="qb" id="qb-m2"><div class="qt">Сопоставь место с правильной арабской фразой:</div>
+<div class="mc">
+<div class="mcl" id="m2l">
+<div class="mi ml" onclick="mc('m2','l',this,'s1')">В мечети</div>
+<div class="mi ml" onclick="mc('m2','l',this,'s2')">На стуле</div>
+<div class="mi ml" onclick="mc('m2','l',this,'s3')">В классе</div>
+<div class="mi ml" onclick="mc('m2','l',this,'s4')">На книге</div>
+</div>
+<div class="mcl" id="m2r">
+<div class="mi mr" onclick="mc('m2','r',this,'s2')">عَلَى الْكُرْسِيِّ</div>
+<div class="mi mr" onclick="mc('m2','r',this,'s1')">فِي الْمَسْجِدِ</div>
+<div class="mi mr" onclick="mc('m2','r',this,'s4')">عَلَى الْكِتَابِ</div>
+<div class="mi mr" onclick="mc('m2','r',this,'s3')">فِي الْفَصْلِ</div>
+</div>
+</div>
+<div class="fb" id="fb-m2"></div></div>
+</div>
+
+<div class="sb">
+<div class="sh"><div class="sn">5</div><div><div class="st">🔊 Прослушай и напиши перевод</div><div class="sd">Нажми кнопку, прослушай и напиши перевод на русском</div></div></div>
+
+<div class="qb" id="qb-21"><div class="qt">Прослушай и напиши перевод:</div>
+<button class="audio-btn" onclick="spk('أَيْنَ الْكِتَابُ؟ هُوَ عَلَى الْمَكْتَبِ')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> 🔊 Прослушать</button>
+<input class="ia" id="i-21" placeholder="Напиши перевод на русском..."><button class="cb" id="cb-21">Проверить</button><div class="fb" id="fb-21"></div><div class="cah" id="h-21"></div></div>
+
+<div class="qb" id="qb-22"><div class="qt">Прослушай и напиши перевод:</div>
+<button class="audio-btn" onclick="spk('أَيْنَ الْمُدَرِّسُ؟ هُوَ فِي الْفَصْلِ')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> 🔊 Прослушать</button>
+<input class="ia" id="i-22" placeholder="Напиши перевод на русском..."><button class="cb" id="cb-22">Проверить</button><div class="fb" id="fb-22"></div><div class="cah" id="h-22"></div></div>
+
+<div class="qb" id="qb-23"><div class="qt">Прослушай и напиши перевод:</div>
+<button class="audio-btn" onclick="spk('أَيْنَ زَيْنَبُ؟ هِيَ فِي الْحَمَّامِ')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> 🔊 Прослушать</button>
+<input class="ia" id="i-23" placeholder="Напиши перевод на русском..."><button class="cb" id="cb-23">Проверить</button><div class="fb" id="fb-23"></div><div class="cah" id="h-23"></div></div>
+
+<div class="qb" id="qb-24"><div class="qt">Прослушай и напиши перевод:</div>
+<button class="audio-btn" onclick="spk('أَيْنَ الرَّجُلُ؟ هُوَ فِي الْمَسْجِدِ')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> 🔊 Прослушать</button>
+<input class="ia" id="i-24" placeholder="Напиши перевод на русском..."><button class="cb" id="cb-24">Проверить</button><div class="fb" id="fb-24"></div><div class="cah" id="h-24"></div></div>
+
+<div class="qb" id="qb-25"><div class="qt">Прослушай и напиши перевод:</div>
+<button class="audio-btn" onclick="spk('الْوَرَقُ عَلَى الْكِتَابِ')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> 🔊 Прослушать</button>
+<input class="ia" id="i-25" placeholder="Напиши перевод на русском..."><button class="cb" id="cb-25">Проверить</button><div class="fb" id="fb-25"></div><div class="cah" id="h-25"></div></div>
+
+<div class="qb" id="qb-26"><div class="qt">Прослушай и напиши перевод:</div>
+<button class="audio-btn" onclick="spk('أَيْنَ التَّاجِرُ؟ هُوَ فِي الدُّكَّانِ')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> 🔊 Прослушать</button>
+<input class="ia" id="i-26" placeholder="Напиши перевод на русском..."><button class="cb" id="cb-26">Проверить</button><div class="fb" id="fb-26"></div><div class="cah" id="h-26"></div></div>
+</div>
+
+<div class="sa"><button class="subb" onclick="showRes()">Завершить тест и узнать оценку</button></div>
+</div>
+
+<div id="rs"><div class="rsc" id="rsc">0%</div><div class="rsg" id="rsg"></div><div class="rsm" id="rsm"></div><p style="color:var(--muted);font-size:.78rem;margin-bottom:28px" id="rsd"></p><div class="errors-block" id="errors-block"></div><br><button class="rb" onclick="retry()">Пройти тест заново</button></div>
+</div>
+
+<script>
+function spk(t){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  setTimeout(function(){
+    var u=new SpeechSynthesisUtterance(t);
+    u.lang='ar-SA';u.rate=0.8;
+    window.speechSynthesis.speak(u);
+  },150);
+}
+
+var TOTAL=26;
+var sc={};var mistakes={};var ms={};var answered=new Set();
+
+var qdata={
+  1:{arabic:'فِي الْبَيْتِ',correct:'В доме',explain:'فِي = в. الْبَيْتِ — дома (كسرة после предлога). Буква ب — лунная → артикль الْ сохраняется.'},
+  2:{arabic:'عَلَى الْمَكْتَبِ',correct:'На столе',explain:'عَلَى = на. الْمَكْتَبِ — стола (كسرة). Буква م — лунная → артикль الْ сохраняется.'},
+  3:{arabic:'فِي الْمَدْرَسَةِ',correct:'В школе',explain:'فِي الْمَدْرَسَةِ — в школе. م — лунная буква → артикль الْ читается полностью.'},
+  4:{arabic:'عَلَى السَّرِيرِ',correct:'На кровати',explain:'عَلَى السَّرِيرِ — на кровати. س — солнечная → артикль ассимилируется: السَّ (шадда на س).'},
+  5:{arabic:'فِي الْمَطْبَخِ',correct:'На кухне',explain:'فِي الْمَطْبَخِ — на кухне/в кухне. مَطْبَخٌ — кухня. م — лунная.'},
+  6:{arabic:'فِي الْحَمَّامِ',correct:'В ванной / туалете',explain:'فِي الْحَمَّامِ — в ванной. حَمَّامٌ — ванная. ح — лунная → الْ сохраняется.'},
+  7:{arabic:'أَيْنَ مُحَمَّدٌ؟ هُوَ فِي الْغُرْفَةِ',correct:'Где Мухаммад? Он в комнате.',explain:'أَيْنَ — где? هُوَ — он. فِي الْغُرْفَةِ — в комнате (غ — лунная).'},
+  8:{arabic:'أَيْنَ آمِنَةُ؟ هِيَ فِي الْمَطْبَخِ',correct:'Где Амина? Она на кухне.',explain:'هِيَ — она (для женщин). فِي الْمَطْبَخِ — на кухне.'},
+  9:{arabic:'أَيْنَ يَاسِرٌ؟',correct:'أَيْنَ يَاسِرٌ؟',explain:'أَيْنَ — где (вопрос о месте). مَنْ — кто (о людях). مَا — что (о предметах).'},
+  10:{arabic:'الطَّالِبُ فِي الْجَامِعَةِ',correct:'Студент в университете.',explain:'الطَّالِبُ — студент (ط солнечная). فِي الْجَامِعَةِ — в университете.'},
+  11:{arabic:'الْقَلَمُ عَلَى الْمَكْتَبِ',correct:'Ручка на столе.',explain:'الْقَلَمُ — ручка (ق лунная). عَلَى الْمَكْتَبِ — на столе.'},
+  12:{arabic:'الشَّمْسُ وَالْقَمَرُ فِي السَّمَاءِ',correct:'Солнце и луна на небе.',explain:'الشَّمْسُ — солнце (ش солнечная). الْقَمَرُ — луна (ق лунная). السَّمَاءِ — небе (س солнечная).'},
+  13:{arabic:'فِي الْمَدْرَسَةِ',correct:'فِي الْمَدْرَسَةِ',explain:'م — лунная буква → артикль الْ не меняется. Падеж после فِي: كسرة (ةِ в конце).'},
+  14:{arabic:'عَلَى السَّرِيرِ',correct:'عَلَى السَّرِيرِ',explain:'س — солнечная → الْ ассимилируется: السَّرِيرِ (шадда на س). Вариант الْسَرِيرِ — ошибка!'},
+  15:{arabic:'الشَّمْسُ',correct:'✓ Верно — ش солнечная, буква удваивается',explain:'ش — солнечная буква → الشَّمْسُ правильно. Лунные примеры: الْبَيْتُ، الْقَلَمُ، الْمَكْتَبُ.'},
+  16:{arabic:'فِي الْشَّمْسِ',correct:'فِي الْشَّمْسِ',explain:'ش — солнечная. Правильно: فِي الشَّمْسِ (без сукун на ل). الْشَّ — ошибка, правильно الشَّ.'}
+};
+
+var answers={1:2,2:3,3:3,4:2,5:4,6:3,7:2,8:3,9:3,10:2,11:3,12:3,13:2,14:2,15:1,16:3};
+
+var inputs={
+  21:{req:['книга','стол'],ok:'Где книга? Она на столе.',explain:'أَيْنَ الْكِتَابُ؟ = Где книга? هُوَ عَلَى الْمَكْتَبِ = Она на столе.'},
+  22:{req:['учитель','класс'],ok:'Где учитель? Он в классе.',explain:'أَيْنَ الْمُدَرِّسُ؟ = Где учитель? هُوَ فِي الْفَصْلِ = Он в классе.'},
+  23:{req:['зейнаб','ванн'],ok:'Где Зейнаб? Она в ванной.',explain:'أَيْنَ زَيْنَبُ؟ = Где Зейнаб? هِيَ فِي الْحَمَّامِ = Она в ванной.'},
+  24:{req:['мужчин','мечет'],ok:'Где мужчина? Он в мечети.',explain:'أَيْنَ الرَّجُلُ؟ = Где мужчина? هُوَ فِي الْمَسْجِدِ = Он в мечети.'},
+  25:{req:['бумаг','книг'],ok:'Бумага на книге.',explain:'الْوَرَقُ — бумага. عَلَى الْكِتَابِ — на книге.'},
+  26:{req:['торгов','магазин','лавк'],ok:'Где торговец? Он в магазине / в лавке.',explain:'أَيْنَ التَّاجِرُ؟ = Где торговец? هُوَ فِي الدُّكَّانِ = Он в магазине.'}
+};
+
+function upd(){
+  var n=answered.size;
+  document.getElementById('pf').style.width=Math.min(100,Math.round(n/TOTAL*100))+'%';
+  document.getElementById('pl').textContent=n+' / '+TOTAL+' отвечено';
+}
+
+function markQ(id,ok,yours,correct,explain,arabic){
+  if(answered.has(id))return;
+  answered.add(id);
+  sc[id]=ok?1:0;
+  if(!ok)mistakes[id]={yours:yours,correct:correct,explain:explain||'',arabic:arabic||'',q:'Вопрос '+id};
+  upd();
+}
+
+for(var q=1;q<=16;q++){
+  for(var b=1;b<=4;b++){
+    (function(qq,bb){
+      var btn=document.getElementById('q'+qq+'b'+bb);
+      if(!btn)return;
+      btn.addEventListener('click',function(){
+        var block=document.getElementById('qb-'+qq);
+        if(block.classList.contains('correct')||block.classList.contains('wrong'))return;
+        var isOk=(bb===answers[qq]);
+        block.querySelectorAll('.ob').forEach(function(x){x.disabled=true;});
+        var fb=document.getElementById('fb-'+qq);
+        var qd=qdata[qq]||{};
+        if(isOk){
+          this.classList.add('sc');block.classList.add('correct');
+          fb.textContent='✓ Правильно! 💡 '+(qd.explain||'');
+          fb.className='fb show ok';
+          markQ(qq,true,'','','','');
+        }else{
+          this.classList.add('sw');block.classList.add('wrong');
+          var ca=document.getElementById('q'+qq+'b'+answers[qq]);
+          if(ca)ca.classList.add('sk');
+          fb.textContent='✗ Неправильно. 💡 '+(qd.explain||'');
+          fb.className='fb show bad';
+          markQ(qq,false,this.textContent,qd.correct||'',qd.explain||'',qd.arabic||'');
+        }
+      });
+    })(q,b);
+  }
+}
+
+function mc(mid,side,el,lbl){
+  if(!ms[mid])ms[mid]={sel:null,el:null,done:new Set()};
+  var s=ms[mid];
+  if(el.classList.contains('mok'))return;
+  if(s.sel===null){
+    if(side!=='l')return;
+    document.querySelectorAll('#'+mid+'l .ml').forEach(function(x){if(!x.classList.contains('mok'))x.classList.remove('sel');});
+    el.classList.add('sel');s.sel=lbl;s.el=el;
+  }else{
+    if(side==='l'){s.el.classList.remove('sel');el.classList.add('sel');s.sel=lbl;s.el=el;return;}
+    var ll=s.sel,rl=lbl,le=s.el,re=el;
+    s.sel=null;s.el=null;le.classList.remove('sel');
+    if(ll===rl){
+      le.classList.add('mok');re.classList.add('mok');s.done.add(ll);
+      var pid='mp_'+mid+'_'+ll;
+      if(!answered.has(pid)){answered.add(pid);sc[pid]=1;upd();}
+      var ls=document.getElementById(mid+'l');
+      if(Array.from(ls.querySelectorAll('.ml')).every(function(x){return x.classList.contains('mok');})){
+        var fb=document.getElementById('fb-'+mid);fb.textContent='✓ Все пары верны!';fb.className='fb show ok';
+      }
+    }else{
+      le.classList.add('mbad');re.classList.add('mbad');
+      setTimeout(function(){le.classList.remove('mbad');re.classList.remove('mbad');},700);
+    }
+  }
+}
+
+for(var q2=21;q2<=26;q2++){
+  (function(qq){
+    var cb=document.getElementById('cb-'+qq);
+    if(!cb)return;
+    cb.addEventListener('click',function(){
+      var inp=document.getElementById('i-'+qq);
+      var raw=inp.value.trim();
+      var v=raw.toLowerCase();
+      if(!v)return;
+      inp.disabled=true;this.disabled=true;
+      var fb=document.getElementById('fb-'+qq);
+      var h=document.getElementById('h-'+qq);
+      var data=inputs[qq];
+      // Строгая проверка: ВСЕ ключевые слова должны присутствовать
+      var ok=data.req.every(function(w){return v.includes(w);});
+      if(ok){
+        inp.classList.add('ci');
+        fb.textContent='✓ Правильно! 💡 '+data.explain;
+        fb.className='fb show ok';
+        markQ(qq,true,'','','','');
+      }else{
+        inp.classList.add('wi');
+        fb.textContent='✗ Неправильно — не все ключевые слова найдены.';
+        fb.className='fb show bad';
+        h.textContent='Правильный ответ: '+data.ok+' 💡 '+data.explain;
+        markQ(qq,false,raw,data.ok,data.explain,'');
+      }
+    });
+  })(q2);
+}
+
+function showRes(){
+  var c=Object.values(sc).filter(function(v){return v===1;}).length;
+  var p=Math.round(c/TOTAL*100);
+  document.getElementById('qc').style.display='none';
+  document.getElementById('rs').style.display='block';
+  document.getElementById('rsc').textContent=p+'%';
+  document.getElementById('rsd').textContent='Правильных: '+c+' из '+TOTAL;
+  var g,m,cl;
+  if(p>=90){g='Оценка: 5 — Отлично!';cl='#27ae60';m='Превосходно! فِي و عَلَى усвоены!';}
+  else if(p>=75){g='Оценка: 4 — Хорошо';cl='#2ecc71';m='Хорошая работа!';}
+  else if(p>=60){g='Оценка: 3 — Удовлетворительно';cl='#f39c12';m='Повтори предлоги и солнечные буквы.';}
+  else if(p>=40){g='Оценка: 2 — Слабо';cl='#e74c3c';m='Нужно больше практики!';}
+  else{g='Оценка: 1 — Нужно повторить';cl='#c0392b';m='Повтори материал заново.';}
+  var ge=document.getElementById('rsg');ge.textContent=g;ge.style.color=cl;
+  document.getElementById('rsm').textContent=m;
+  document.getElementById('rsc').style.color=cl;
+  var eb=document.getElementById('errors-block');
+  var keys=Object.keys(mistakes);
+  if(keys.length===0){
+    eb.innerHTML='<div style="color:#5ddb8d;text-align:center;padding:18px;background:rgba(39,174,96,0.1);border-radius:12px;border:1px solid #27ae60">🎉 Ошибок нет! Все ответы верные!</div>';
+  }else{
+    var html='<div class="errors-title">❌ Разбор ошибок ('+keys.length+')</div>';
+    keys.forEach(function(k){
+      var m=mistakes[k];
+      html+='<div class="err-item"><div class="err-q">'+m.q+'</div>';
+      if(m.arabic)html+='<div class="err-arabic">'+m.arabic+'</div>';
+      html+='<div class="err-row"><div class="err-yours">✗ '+m.yours+'</div><div class="err-correct">✓ '+m.correct+'</div></div>';
+      if(m.explain)html+='<div class="err-explain">💡 '+m.explain+'</div>';
+      html+='</div>';
+    });
+    eb.innerHTML=html;
+  }
+}
+
+function retry(){
+  sc={};mistakes={};answered=new Set();
+  Object.keys(ms).forEach(function(k){delete ms[k];});
+  document.getElementById('rs').style.display='none';
+  document.getElementById('qc').style.display='block';
+  document.querySelectorAll('.qb').forEach(function(b){b.className='qb';});
+  document.querySelectorAll('.ob').forEach(function(b){b.className='ob';b.disabled=false;});
+  document.querySelectorAll('.fb').forEach(function(f){f.className='fb';f.textContent='';});
+  document.querySelectorAll('.ia').forEach(function(i){i.value='';i.disabled=false;i.className='ia';});
+  document.querySelectorAll('.cb').forEach(function(b){b.disabled=false;});
+  document.querySelectorAll('.cah').forEach(function(h){h.textContent='';});
+  document.querySelectorAll('.ml,.mr').forEach(function(el){el.className=el.classList.contains('mr')?'mi mr':'mi ml';});
+  upd();window.scrollTo({top:0,behavior:'smooth'});
+}
+upd();
+</script>
+</body></html>
