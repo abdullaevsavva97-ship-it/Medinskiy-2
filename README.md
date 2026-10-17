@@ -21,11 +21,11 @@
 <div class="rule-note">
 • <span style="color:var(--accent)">فِي الْبَيْتِ</span> — в доме &nbsp;•&nbsp; <span style="color:var(--accent)">فِي الْمَدْرَسَةِ</span> — в школе<br>
 • <span style="color:var(--accent)">عَلَى الْمَكْتَبِ</span> — на столе &nbsp;•&nbsp; <span style="color:var(--accent)">عَلَى السَّرِيرِ</span> — на кровати<br><br>
-<strong style="color:var(--accent2)">☀️ Солнечные буквы</strong> — артикль ل ассимилируется с первой буквой слова:<br>
-الشَّمْسُ ← شمس &nbsp;•&nbsp; الصَّفِّ ← صف &nbsp;•&nbsp; السَّرِيرُ ← سرير<br><br>
+<strong style="color:var(--accent2)">☀️ Солнечные буквы</strong> — артикль ل ассимилируется с первой буквой:<br>
+الشَّمْسُ ← شمس &nbsp;•&nbsp; السَّرِيرُ ← سرير &nbsp;•&nbsp; الطَّالِبُ ← طالب<br><br>
 <strong style="color:var(--accent2)">🌙 Лунные буквы</strong> — артикль الْ читается полностью:<br>
 الْبَيْتُ ← بيت &nbsp;•&nbsp; الْمَكْتَبُ ← مكتب &nbsp;•&nbsp; الْقَلَمُ ← قلم<br><br>
-<strong style="color:var(--accent2)">أَيْنَ؟</strong> — Где? → ответ: هُوَ/هِيَ + فِي/عَلَى + место
+<strong style="color:var(--accent2)">أَيْنَ؟</strong> — Где? → هُوَ/هِيَ + فِي/عَلَى + место
 </div>
 </div>
 </div>
@@ -147,199 +147,18 @@
 </div>
 
 <script>
-function spk(t){
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  setTimeout(function(){
-    var u=new SpeechSynthesisUtterance(t);
-    u.lang='ar-SA';u.rate=0.8;
-    window.speechSynthesis.speak(u);
-  },150);
-}
-
-var TOTAL=26;
-var sc={};var mistakes={};var ms={};var answered=new Set();
-
-var qdata={
-  1:{arabic:'فِي الْبَيْتِ',correct:'В доме',explain:'فِي = в. الْبَيْتِ — дома (كسرة после предлога). Буква ب — лунная → артикль الْ сохраняется.'},
-  2:{arabic:'عَلَى الْمَكْتَبِ',correct:'На столе',explain:'عَلَى = на. الْمَكْتَبِ — стола (كسرة). Буква م — лунная → артикль الْ сохраняется.'},
-  3:{arabic:'فِي الْمَدْرَسَةِ',correct:'В школе',explain:'فِي الْمَدْرَسَةِ — в школе. م — лунная буква → артикль الْ читается полностью.'},
-  4:{arabic:'عَلَى السَّرِيرِ',correct:'На кровати',explain:'عَلَى السَّرِيرِ — на кровати. س — солнечная → артикль ассимилируется: السَّ (шадда на س).'},
-  5:{arabic:'فِي الْمَطْبَخِ',correct:'На кухне',explain:'فِي الْمَطْبَخِ — на кухне/в кухне. مَطْبَخٌ — кухня. م — лунная.'},
-  6:{arabic:'فِي الْحَمَّامِ',correct:'В ванной / туалете',explain:'فِي الْحَمَّامِ — в ванной. حَمَّامٌ — ванная. ح — лунная → الْ сохраняется.'},
-  7:{arabic:'أَيْنَ مُحَمَّدٌ؟ هُوَ فِي الْغُرْفَةِ',correct:'Где Мухаммад? Он в комнате.',explain:'أَيْنَ — где? هُوَ — он. فِي الْغُرْفَةِ — в комнате (غ — лунная).'},
-  8:{arabic:'أَيْنَ آمِنَةُ؟ هِيَ فِي الْمَطْبَخِ',correct:'Где Амина? Она на кухне.',explain:'هِيَ — она (для женщин). فِي الْمَطْبَخِ — на кухне.'},
-  9:{arabic:'أَيْنَ يَاسِرٌ؟',correct:'أَيْنَ يَاسِرٌ؟',explain:'أَيْنَ — где (вопрос о месте). مَنْ — кто (о людях). مَا — что (о предметах).'},
-  10:{arabic:'الطَّالِبُ فِي الْجَامِعَةِ',correct:'Студент в университете.',explain:'الطَّالِبُ — студент (ط солнечная). فِي الْجَامِعَةِ — в университете.'},
-  11:{arabic:'الْقَلَمُ عَلَى الْمَكْتَبِ',correct:'Ручка на столе.',explain:'الْقَلَمُ — ручка (ق лунная). عَلَى الْمَكْتَبِ — на столе.'},
-  12:{arabic:'الشَّمْسُ وَالْقَمَرُ فِي السَّمَاءِ',correct:'Солнце и луна на небе.',explain:'الشَّمْسُ — солнце (ش солнечная). الْقَمَرُ — луна (ق лунная). السَّمَاءِ — небе (س солнечная).'},
-  13:{arabic:'فِي الْمَدْرَسَةِ',correct:'فِي الْمَدْرَسَةِ',explain:'م — лунная буква → артикль الْ не меняется. Падеж после فِي: كسرة (ةِ в конце).'},
-  14:{arabic:'عَلَى السَّرِيرِ',correct:'عَلَى السَّرِيرِ',explain:'س — солнечная → الْ ассимилируется: السَّرِيرِ (шадда на س). Вариант الْسَرِيرِ — ошибка!'},
-  15:{arabic:'الشَّمْسُ',correct:'✓ Верно — ش солнечная, буква удваивается',explain:'ش — солнечная буква → الشَّمْسُ правильно. Лунные примеры: الْبَيْتُ، الْقَلَمُ، الْمَكْتَبُ.'},
-  16:{arabic:'فِي الْشَّمْسِ',correct:'فِي الْشَّمْسِ',explain:'ش — солнечная. Правильно: فِي الشَّمْسِ (без сукун на ل). الْشَّ — ошибка, правильно الشَّ.'}
-};
-
+function spk(t){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();setTimeout(function(){var u=new SpeechSynthesisUtterance(t);u.lang='ar-SA';u.rate=0.8;window.speechSynthesis.speak(u);},150);}
+var TOTAL=26;var sc={};var mistakes={};var ms={};var answered=new Set();
+var qdata={1:{arabic:'فِي الْبَيْتِ',correct:'В доме',explain:'فِي = в. الْبَيْتِ — كسرة после предлога. ب — лунная → артикль الْ сохраняется.'},2:{arabic:'عَلَى الْمَكْتَبِ',correct:'На столе',explain:'عَلَى = на. الْمَكْتَبِ — كسرة. م — лунная → артикль الْ сохраняется.'},3:{arabic:'فِي الْمَدْرَسَةِ',correct:'В школе',explain:'فِي الْمَدْرَسَةِ — в школе. م — лунная → артикль الْ читается полностью.'},4:{arabic:'عَلَى السَّرِيرِ',correct:'На кровати',explain:'عَلَى السَّرِيرِ — на кровати. س — солнечная → артикль ассимилируется: السَّ.'},5:{arabic:'فِي الْمَطْبَخِ',correct:'На кухне',explain:'فِي الْمَطْبَخِ — на кухне. مَطْبَخٌ — кухня. م — лунная.'},6:{arabic:'فِي الْحَمَّامِ',correct:'В ванной / туалете',explain:'فِي الْحَمَّامِ — в ванной. ح — лунная → الْ сохраняется.'},7:{arabic:'أَيْنَ مُحَمَّدٌ؟ هُوَ فِي الْغُرْفَةِ',correct:'Где Мухаммад? Он в комнате.',explain:'أَيْنَ — где? هُوَ — он. فِي الْغُرْفَةِ — в комнате.'},8:{arabic:'أَيْنَ آمِنَةُ؟ هِيَ فِي الْمَطْبَخِ',correct:'Где Амина? Она на кухне.',explain:'هِيَ — она. فِي الْمَطْبَخِ — на кухне.'},9:{arabic:'أَيْنَ يَاسِرٌ؟',correct:'أَيْنَ يَاسِرٌ؟',explain:'أَيْنَ — где (о месте). مَنْ — кто (о людях). مَا — что (о предметах).'},10:{arabic:'الطَّالِبُ فِي الْجَامِعَةِ',correct:'Студент в университете.',explain:'الطَّالِبُ — студент (ط солнечная). فِي الْجَامِعَةِ — в университете.'},11:{arabic:'الْقَلَمُ عَلَى الْمَكْتَبِ',correct:'Ручка на столе.',explain:'الْقَلَمُ — ручка (ق лунная). عَلَى الْمَكْتَبِ — на столе.'},12:{arabic:'الشَّمْسُ وَالْقَمَرُ فِي السَّمَاءِ',correct:'Солнце и луна на небе.',explain:'الشَّمْسُ (ش солнечная). الْقَمَرُ (ق лунная). السَّمَاءِ (س солнечная).'},13:{arabic:'فِي الْمَدْرَسَةِ',correct:'فِي الْمَدْرَسَةِ',explain:'م — лунная → артикль الْ не меняется. Падеж после فِي: كسرة.'},14:{arabic:'عَلَى السَّرِيرِ',correct:'عَلَى السَّرِيرِ',explain:'س — солнечная → السَّرِيرِ (шадда на س). Вариант الْسَرِيرِ — ошибка!'},15:{arabic:'الشَّمْسُ',correct:'✓ Верно — ش солнечная, буква удваивается',explain:'ش — солнечная → الشَّمْسُ правильно.'},16:{arabic:'فِي الْشَّمْسِ',correct:'فِي الْشَّمْسِ',explain:'ش — солнечная. Правильно: فِي الشَّمْسِ (без سكون на ل). الْشَّ — ошибка!'}};
 var answers={1:2,2:3,3:3,4:2,5:4,6:3,7:2,8:3,9:3,10:2,11:3,12:3,13:2,14:2,15:1,16:3};
-
-var inputs={
-  21:{req:['книга','стол'],ok:'Где книга? Она на столе.',explain:'أَيْنَ الْكِتَابُ؟ = Где книга? هُوَ عَلَى الْمَكْتَبِ = Она на столе.'},
-  22:{req:['учитель','класс'],ok:'Где учитель? Он в классе.',explain:'أَيْنَ الْمُدَرِّسُ؟ = Где учитель? هُوَ فِي الْفَصْلِ = Он в классе.'},
-  23:{req:['зейнаб','ванн'],ok:'Где Зейнаб? Она в ванной.',explain:'أَيْنَ زَيْنَبُ؟ = Где Зейнаб? هِيَ فِي الْحَمَّامِ = Она в ванной.'},
-  24:{req:['мужчин','мечет'],ok:'Где мужчина? Он в мечети.',explain:'أَيْنَ الرَّجُلُ؟ = Где мужчина? هُوَ فِي الْمَسْجِدِ = Он в мечети.'},
-  25:{req:['бумаг','книг'],ok:'Бумага на книге.',explain:'الْوَرَقُ — бумага. عَلَى الْكِتَابِ — на книге.'},
-  26:{req:['торгов','магазин','лавк'],ok:'Где торговец? Он в магазине / в лавке.',explain:'أَيْنَ التَّاجِرُ؟ = Где торговец? هُوَ فِي الدُّكَّانِ = Он в магазине.'}
-};
-
-function upd(){
-  var n=answered.size;
-  document.getElementById('pf').style.width=Math.min(100,Math.round(n/TOTAL*100))+'%';
-  document.getElementById('pl').textContent=n+' / '+TOTAL+' отвечено';
-}
-
-function markQ(id,ok,yours,correct,explain,arabic){
-  if(answered.has(id))return;
-  answered.add(id);
-  sc[id]=ok?1:0;
-  if(!ok)mistakes[id]={yours:yours,correct:correct,explain:explain||'',arabic:arabic||'',q:'Вопрос '+id};
-  upd();
-}
-
-for(var q=1;q<=16;q++){
-  for(var b=1;b<=4;b++){
-    (function(qq,bb){
-      var btn=document.getElementById('q'+qq+'b'+bb);
-      if(!btn)return;
-      btn.addEventListener('click',function(){
-        var block=document.getElementById('qb-'+qq);
-        if(block.classList.contains('correct')||block.classList.contains('wrong'))return;
-        var isOk=(bb===answers[qq]);
-        block.querySelectorAll('.ob').forEach(function(x){x.disabled=true;});
-        var fb=document.getElementById('fb-'+qq);
-        var qd=qdata[qq]||{};
-        if(isOk){
-          this.classList.add('sc');block.classList.add('correct');
-          fb.textContent='✓ Правильно! 💡 '+(qd.explain||'');
-          fb.className='fb show ok';
-          markQ(qq,true,'','','','');
-        }else{
-          this.classList.add('sw');block.classList.add('wrong');
-          var ca=document.getElementById('q'+qq+'b'+answers[qq]);
-          if(ca)ca.classList.add('sk');
-          fb.textContent='✗ Неправильно. 💡 '+(qd.explain||'');
-          fb.className='fb show bad';
-          markQ(qq,false,this.textContent,qd.correct||'',qd.explain||'',qd.arabic||'');
-        }
-      });
-    })(q,b);
-  }
-}
-
-function mc(mid,side,el,lbl){
-  if(!ms[mid])ms[mid]={sel:null,el:null,done:new Set()};
-  var s=ms[mid];
-  if(el.classList.contains('mok'))return;
-  if(s.sel===null){
-    if(side!=='l')return;
-    document.querySelectorAll('#'+mid+'l .ml').forEach(function(x){if(!x.classList.contains('mok'))x.classList.remove('sel');});
-    el.classList.add('sel');s.sel=lbl;s.el=el;
-  }else{
-    if(side==='l'){s.el.classList.remove('sel');el.classList.add('sel');s.sel=lbl;s.el=el;return;}
-    var ll=s.sel,rl=lbl,le=s.el,re=el;
-    s.sel=null;s.el=null;le.classList.remove('sel');
-    if(ll===rl){
-      le.classList.add('mok');re.classList.add('mok');s.done.add(ll);
-      var pid='mp_'+mid+'_'+ll;
-      if(!answered.has(pid)){answered.add(pid);sc[pid]=1;upd();}
-      var ls=document.getElementById(mid+'l');
-      if(Array.from(ls.querySelectorAll('.ml')).every(function(x){return x.classList.contains('mok');})){
-        var fb=document.getElementById('fb-'+mid);fb.textContent='✓ Все пары верны!';fb.className='fb show ok';
-      }
-    }else{
-      le.classList.add('mbad');re.classList.add('mbad');
-      setTimeout(function(){le.classList.remove('mbad');re.classList.remove('mbad');},700);
-    }
-  }
-}
-
-for(var q2=21;q2<=26;q2++){
-  (function(qq){
-    var cb=document.getElementById('cb-'+qq);
-    if(!cb)return;
-    cb.addEventListener('click',function(){
-      var inp=document.getElementById('i-'+qq);
-      var raw=inp.value.trim();
-      var v=raw.toLowerCase();
-      if(!v)return;
-      inp.disabled=true;this.disabled=true;
-      var fb=document.getElementById('fb-'+qq);
-      var h=document.getElementById('h-'+qq);
-      var data=inputs[qq];
-      // Строгая проверка: ВСЕ ключевые слова должны присутствовать
-      var ok=data.req.every(function(w){return v.includes(w);});
-      if(ok){
-        inp.classList.add('ci');
-        fb.textContent='✓ Правильно! 💡 '+data.explain;
-        fb.className='fb show ok';
-        markQ(qq,true,'','','','');
-      }else{
-        inp.classList.add('wi');
-        fb.textContent='✗ Неправильно — не все ключевые слова найдены.';
-        fb.className='fb show bad';
-        h.textContent='Правильный ответ: '+data.ok+' 💡 '+data.explain;
-        markQ(qq,false,raw,data.ok,data.explain,'');
-      }
-    });
-  })(q2);
-}
-
-function showRes(){
-  var c=Object.values(sc).filter(function(v){return v===1;}).length;
-  var p=Math.round(c/TOTAL*100);
-  document.getElementById('qc').style.display='none';
-  document.getElementById('rs').style.display='block';
-  document.getElementById('rsc').textContent=p+'%';
-  document.getElementById('rsd').textContent='Правильных: '+c+' из '+TOTAL;
-  var g,m,cl;
-  if(p>=90){g='Оценка: 5 — Отлично!';cl='#27ae60';m='Превосходно! فِي و عَلَى усвоены!';}
-  else if(p>=75){g='Оценка: 4 — Хорошо';cl='#2ecc71';m='Хорошая работа!';}
-  else if(p>=60){g='Оценка: 3 — Удовлетворительно';cl='#f39c12';m='Повтори предлоги и солнечные буквы.';}
-  else if(p>=40){g='Оценка: 2 — Слабо';cl='#e74c3c';m='Нужно больше практики!';}
-  else{g='Оценка: 1 — Нужно повторить';cl='#c0392b';m='Повтори материал заново.';}
-  var ge=document.getElementById('rsg');ge.textContent=g;ge.style.color=cl;
-  document.getElementById('rsm').textContent=m;
-  document.getElementById('rsc').style.color=cl;
-  var eb=document.getElementById('errors-block');
-  var keys=Object.keys(mistakes);
-  if(keys.length===0){
-    eb.innerHTML='<div style="color:#5ddb8d;text-align:center;padding:18px;background:rgba(39,174,96,0.1);border-radius:12px;border:1px solid #27ae60">🎉 Ошибок нет! Все ответы верные!</div>';
-  }else{
-    var html='<div class="errors-title">❌ Разбор ошибок ('+keys.length+')</div>';
-    keys.forEach(function(k){
-      var m=mistakes[k];
-      html+='<div class="err-item"><div class="err-q">'+m.q+'</div>';
-      if(m.arabic)html+='<div class="err-arabic">'+m.arabic+'</div>';
-      html+='<div class="err-row"><div class="err-yours">✗ '+m.yours+'</div><div class="err-correct">✓ '+m.correct+'</div></div>';
-      if(m.explain)html+='<div class="err-explain">💡 '+m.explain+'</div>';
-      html+='</div>';
-    });
-    eb.innerHTML=html;
-  }
-}
-
-function retry(){
-  sc={};mistakes={};answered=new Set();
-  Object.keys(ms).forEach(function(k){delete ms[k];});
-  document.getElementById('rs').style.display='none';
-  document.getElementById('qc').style.display='block';
-  document.querySelectorAll('.qb').forEach(function(b){b.className='qb';});
-  document.querySelectorAll('.ob').forEach(function(b){b.className='ob';b.disabled=false;});
-  document.querySelectorAll('.fb').forEach(function(f){f.className='fb';f.textContent='';});
-  document.querySelectorAll('.ia').forEach(function(i){i.value='';i.disabled=false;i.className='ia';});
-  document.querySelectorAll('.cb').forEach(function(b){b.disabled=false;});
-  document.querySelectorAll('.cah').forEach(function(h){h.textContent='';});
-  document.querySelectorAll('.ml,.mr').forEach(function(el){el.className=el.classList.contains('mr')?'mi mr':'mi ml';});
-  upd();window.scrollTo({top:0,behavior:'smooth'});
-}
+var inputs={21:{req:['книга','стол'],ok:'Где книга? Она на столе.',explain:'أَيْنَ الْكِتَابُ؟ = Где книга? هُوَ عَلَى الْمَكْتَبِ = Она на столе.'},22:{req:['учитель','класс'],ok:'Где учитель? Он в классе.',explain:'أَيْنَ الْمُدَرِّسُ؟ = Где учитель? هُوَ فِي الْفَصْلِ = Он в классе.'},23:{req:['зейнаб','ванн'],ok:'Где Зейнаб? Она в ванной.',explain:'أَيْنَ زَيْنَبُ؟ = Где Зейнаб? هِيَ فِي الْحَمَّامِ = Она в ванной.'},24:{req:['мужчин','мечет'],ok:'Где мужчина? Он в мечети.',explain:'أَيْنَ الرَّجُلُ؟ = Где мужчина? هُوَ فِي الْمَسْجِدِ = Он в мечети.'},25:{req:['бумаг','книг'],ok:'Бумага на книге.',explain:'الْوَرَقُ — бумага. عَلَى الْكِتَابِ — на книге.'},26:{req:['торгов','магазин'],ok:'Где торговец? Он в магазине.',explain:'أَيْنَ التَّاجِرُ؟ هُوَ فِي الدُّكَّانِ = Где торговец? Он в магазине.'}};
+function upd(){var n=answered.size;document.getElementById('pf').style.width=Math.min(100,Math.round(n/TOTAL*100))+'%';document.getElementById('pl').textContent=n+' / '+TOTAL+' отвечено';}
+function markQ(id,ok,yours,correct,explain,arabic){if(answered.has(id))return;answered.add(id);sc[id]=ok?1:0;if(!ok)mistakes[id]={yours:yours,correct:correct,explain:explain||'',arabic:arabic||'',q:'Вопрос '+id};upd();}
+for(var q=1;q<=16;q++){for(var b=1;b<=4;b++){(function(qq,bb){var btn=document.getElementById('q'+qq+'b'+bb);if(!btn)return;btn.addEventListener('click',function(){var block=document.getElementById('qb-'+qq);if(block.classList.contains('correct')||block.classList.contains('wrong'))return;var isOk=(bb===answers[qq]);block.querySelectorAll('.ob').forEach(function(x){x.disabled=true;});var fb=document.getElementById('fb-'+qq);var qd=qdata[qq]||{};if(isOk){this.classList.add('sc');block.classList.add('correct');fb.textContent='✓ Правильно! 💡 '+(qd.explain||'');fb.className='fb show ok';markQ(qq,true,'','','','');}else{this.classList.add('sw');block.classList.add('wrong');var ca=document.getElementById('q'+qq+'b'+answers[qq]);if(ca)ca.classList.add('sk');fb.textContent='✗ Неправильно. 💡 '+(qd.explain||'');fb.className='fb show bad';markQ(qq,false,this.textContent,qd.correct||'',qd.explain||'',qd.arabic||'');}});})(q,b);}}
+function mc(mid,side,el,lbl){if(!ms[mid])ms[mid]={sel:null,el:null,done:new Set()};var s=ms[mid];if(el.classList.contains('mok'))return;if(s.sel===null){if(side!=='l')return;document.querySelectorAll('#'+mid+'l .ml').forEach(function(x){if(!x.classList.contains('mok'))x.classList.remove('sel');});el.classList.add('sel');s.sel=lbl;s.el=el;}else{if(side==='l'){s.el.classList.remove('sel');el.classList.add('sel');s.sel=lbl;s.el=el;return;}var ll=s.sel,rl=lbl,le=s.el,re=el;s.sel=null;s.el=null;le.classList.remove('sel');if(ll===rl){le.classList.add('mok');re.classList.add('mok');s.done.add(ll);var pid='mp_'+mid+'_'+ll;if(!answered.has(pid)){answered.add(pid);sc[pid]=1;upd();}var ls=document.getElementById(mid+'l');if(Array.from(ls.querySelectorAll('.ml')).every(function(x){return x.classList.contains('mok');})){var fb=document.getElementById('fb-'+mid);fb.textContent='✓ Все пары верны!';fb.className='fb show ok';}}else{le.classList.add('mbad');re.classList.add('mbad');setTimeout(function(){le.classList.remove('mbad');re.classList.remove('mbad');},700);}}}
+for(var q2=21;q2<=26;q2++){(function(qq){var cb=document.getElementById('cb-'+qq);if(!cb)return;cb.addEventListener('click',function(){var inp=document.getElementById('i-'+qq);var raw=inp.value.trim();var v=raw.toLowerCase();if(!v)return;inp.disabled=true;this.disabled=true;var fb=document.getElementById('fb-'+qq);var h=document.getElementById('h-'+qq);var data=inputs[qq];var ok=data.req.every(function(w){return v.includes(w);});if(ok){inp.classList.add('ci');fb.textContent='✓ Правильно! 💡 '+data.explain;fb.className='fb show ok';markQ(qq,true,'','','','');}else{inp.classList.add('wi');fb.textContent='✗ Неправильно.';fb.className='fb show bad';h.textContent='Правильный ответ: '+data.ok+' 💡 '+data.explain;markQ(qq,false,raw,data.ok,data.explain,'');}});})(q2);}
+function showRes(){var c=Object.values(sc).filter(function(v){return v===1;}).length;var p=Math.round(c/TOTAL*100);document.getElementById('qc').style.display='none';document.getElementById('rs').style.display='block';document.getElementById('rsc').textContent=p+'%';document.getElementById('rsd').textContent='Правильных: '+c+' из '+TOTAL;var g,m,cl;if(p>=90){g='Оценка: 5 — Отлично!';cl='#27ae60';m='Превосходно!';}else if(p>=75){g='Оценка: 4 — Хорошо';cl='#2ecc71';m='Хорошая работа!';}else if(p>=60){g='Оценка: 3 — Удовлетворительно';cl='#f39c12';m='Повтори предлоги.';}else if(p>=40){g='Оценка: 2 — Слабо';cl='#e74c3c';m='Нужно больше практики!';}else{g='Оценка: 1 — Нужно повторить';cl='#c0392b';m='Повтори материал заново.';}var ge=document.getElementById('rsg');ge.textContent=g;ge.style.color=cl;document.getElementById('rsm').textContent=m;document.getElementById('rsc').style.color=cl;var eb=document.getElementById('errors-block');var keys=Object.keys(mistakes);if(keys.length===0){eb.innerHTML='<div style="color:#5ddb8d;text-align:center;padding:18px;background:rgba(39,174,96,0.1);border-radius:12px;border:1px solid #27ae60">🎉 Ошибок нет!</div>';}else{var html='<div class="errors-title">❌ Разбор ошибок ('+keys.length+')</div>';keys.forEach(function(k){var m=mistakes[k];html+='<div class="err-item"><div class="err-q">'+m.q+'</div>';if(m.arabic)html+='<div class="err-arabic">'+m.arabic+'</div>';html+='<div class="err-row"><div class="err-yours">✗ '+m.yours+'</div><div class="err-correct">✓ '+m.correct+'</div></div>';if(m.explain)html+='<div class="err-explain">💡 '+m.explain+'</div>';html+='</div>';});eb.innerHTML=html;}}
+function retry(){sc={};mistakes={};answered=new Set();Object.keys(ms).forEach(function(k){delete ms[k];});document.getElementById('rs').style.display='none';document.getElementById('qc').style.display='block';document.querySelectorAll('.qb').forEach(function(b){b.className='qb';});document.querySelectorAll('.ob').forEach(function(b){b.className='ob';b.disabled=false;});document.querySelectorAll('.fb').forEach(function(f){f.className='fb';f.textContent='';});document.querySelectorAll('.ia').forEach(function(i){i.value='';i.disabled=false;i.className='ia';});document.querySelectorAll('.cb').forEach(function(b){b.disabled=false;});document.querySelectorAll('.cah').forEach(function(h){h.textContent='';});document.querySelectorAll('.ml,.mr').forEach(function(el){el.className=el.classList.contains('mr')?'mi mr':'mi ml';});upd();window.scrollTo({top:0,behavior:'smooth'});}
 upd();
 </script>
 </body></html>
